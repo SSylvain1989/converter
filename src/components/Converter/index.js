@@ -49,8 +49,8 @@ class Converter extends React.Component {
     const { open } = this.state;
 
     // pour changer une des valeurs de mon state il faut que je passe par setState
-    // eslint-disable-next-line max-len
-    // literalement = ce state ( this ) , tu changes son etat ( setSate) , si open est à // false tu le change à true & inversement ( je stock la valeur du nouveau open dans // open)
+    // literalement = ce state ( this ) , tu changes son etat ( setSate) , si open est à 
+    // false tu le change à true & inversement ( je stock la valeur du nouveau open dans // open)
     this.setState({ open: !open });
 
     // ne JAMAIS modifier le state directement 
@@ -77,7 +77,6 @@ class Converter extends React.Component {
     const { rate } = currencyData;
     // const value = parseFloat((rate * baseAmount).toFixed(2), 10);
     const value = Math.round(rate * baseAmount * 100) / 100;
-
     return value;
   }
 
