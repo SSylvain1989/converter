@@ -58,39 +58,13 @@ class Converter extends React.Component {
     // this.state.open = !open;
   }
 
-  // *************CHALLENGE**************
-  // faire une fonction " changeCurrency" qui modifie le state 
-  changeCurrency = () => {
-    const { currency } = this.state;
-    // this.setState({currency : })
+  handleClickOnCurrency = (event) => {
+    const newCurrency = event.target.getAttribute('value');
+    this.setState({currency : newCurrency });
   }
-
-  handleClick = (event) => {
-    console.log('click');
-
-    // const data = event.name;
-    // console.log('ligne 71', data);
-    console.log('event', event.target.value);
-
-
-    // const closest = data.closest('.currencies__list');
-    // console.log(closest);
-
-    // const dataLi = closest.querySelector('li[value="{name}"]').value;
-    // console.log(dataLi);
-  }
-  // cette fonction elle va être à passer dans les props de Converter
-  // ajouter un handleOnClickCurrency 
-  // mettre un console.log dans handleOnClickCurrency 
-  // handleOnClickCurrency va appeler " changeCurrency"
-  // *************FIN CHALLENGE ***********
 
   makeConversion = () => {
     const { currency, baseAmount } = this.state;
-
-    // on veut changer la valeur de currency pour dynamiser l'application.
-    // on veut changer la valeur de rate 
-
     const currencyData = currenciesData.find((currencyToFind) => (
       currencyToFind.name === currency
     ));
@@ -127,7 +101,7 @@ class Converter extends React.Component {
           alors JS viendra traiter la valeur de droite
           grâce à cette technique on peut afficher conditionnellement des composant dans le JSX
         */}
-        {open && <Currencies currencies={currenciesData} onClick={this.handleClick} />}
+        {open && <Currencies currencies={currenciesData} onClick={this.handleClickOnCurrency} />}
         <Amount
           // ** soit on exécute la fonction makeConversion pour récupérer le résultat
           value={this.makeConversion()}
