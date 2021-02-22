@@ -6,13 +6,15 @@ import './style.scss';
 const Header = ({ baseAmount, changeEuroAmont }) => (
   <header className="header">
     <h1 className="header__title">Convertisseur de devises</h1>
-    <input
-      className="header__base-amount"
-      type="text"
-      value={`${baseAmount}`}
-      placeholder="Renseigner un montant en Euro"
-      onChange={changeEuroAmont}
-    />
+    <p>
+      <input
+        className="header__base-amount"
+        type="text"
+        value={`${baseAmount}`}
+        placeholder="Renseigner un montant à convertir"
+        onChange={changeEuroAmont}
+      />€
+    </p>
   </header>
 );
 
