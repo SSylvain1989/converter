@@ -36,7 +36,7 @@ class Converter extends React.Component {
   // pays du bas de l'application
   state = {
     open: true,
-    baseAmount: 1,
+    baseAmount: '',
     currency: 'United States Dollar',
 
   }
@@ -58,6 +58,11 @@ class Converter extends React.Component {
     // this.state.open = !open;
   }
 
+  changeEuroAmont = (event) => {
+    const newBaseAmount = event.target.value;
+    this.setState({ baseAmount : newBaseAmount});
+  }
+
   handleClickOnCurrency = (event) => {
     const newCurrency = event.target.getAttribute('value');
     this.setState({currency : newCurrency });
@@ -70,8 +75,6 @@ class Converter extends React.Component {
     ));
 
     const { rate } = currencyData;
-    console.log(rate);
-
     // const value = parseFloat((rate * baseAmount).toFixed(2), 10);
     const value = Math.round(rate * baseAmount * 100) / 100;
 
@@ -91,6 +94,7 @@ class Converter extends React.Component {
         {/* React.createElement(Header, {baseAmount: 1}) */}
         <Header
           baseAmount={baseAmount}
+          changeEuroAmont={this.changeEuroAmont}
         />
         {/* React.createElement(Toggler, {toggle: this.toggle}) */}
         <Toggler
